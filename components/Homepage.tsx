@@ -68,7 +68,7 @@ const Homepage = (): JSX.Element => {
             </span>
           </h2>
           <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about how OxygenDev can steal the breath out of you.
+            Learn about how OxygenDev can take the breath out of your customers.
           </p>
         </a>
 
