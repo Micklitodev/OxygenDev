@@ -5,7 +5,7 @@ import { getUsers } from "@/lib/fragments/queries";
 
 const Main = (): JSX.Element => {
 
-  const data = axios.post('http://localhost:3000/api/graphql', { getUsers })
+  const data = axios.post('./api/graphql', { getUsers })
   .then(response => {
     console.log(response.data);
   })
