@@ -1,6 +1,19 @@
 import Image from "next/image";
+import axios from "axios";
+import { getUsers } from "@/lib/fragments/queries";
+
 
 const Main = (): JSX.Element => {
+
+  const data = axios.post('http://localhost:3000/api/graphql', { getUsers })
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+  
+
   return (
     <>
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
