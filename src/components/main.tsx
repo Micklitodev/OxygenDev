@@ -1,9 +1,9 @@
-import Image from "next/image"
+import Image from "next/image";
 
-const Homepage = (): JSX.Element => {
-    return (
-        <>
-              <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
+const Main = (): JSX.Element => {
+  return (
+    <>
+      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
           Smooth, Optimized, Intuitive Interfaces. &nbsp;
         </p>
@@ -13,7 +13,9 @@ const Homepage = (): JSX.Element => {
             href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
             target="_blank"
             rel="noopener noreferrer"
-          > by {' '}
+          >
+            {" "}
+            by{" "}
             <Image
               src="/oxygendevlogo.svg"
               alt="Vercel Logo"
@@ -45,13 +47,14 @@ const Homepage = (): JSX.Element => {
           rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Home{' '}
+            Home{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
           </h2>
           <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about OxygenDev and how we can change the future of buisness for you.
+            Find in-depth information about OxygenDev and how we can change the
+            future of buisness for you.
           </p>
         </a>
 
@@ -62,7 +65,7 @@ const Homepage = (): JSX.Element => {
           rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
+            Learn{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
@@ -79,7 +82,7 @@ const Homepage = (): JSX.Element => {
           rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Preview{' '}
+            Preview{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
@@ -88,10 +91,9 @@ const Homepage = (): JSX.Element => {
             Discover work completed for our clients and partners.
           </p>
         </a>
-
       </div>
-        </>
-    )
-}
+    </>
+  );
+};
 
-export default Homepage; 
+export default Main;
