@@ -25,3 +25,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.shadow-purple-300 {
+  box-shadow: 0 4px 25px rgba(73, 63, 134, 0.2);  
+}

@@ -1,4 +1,4 @@
-'use server';
+"use server";
 
 import { NextPage } from "next";
 import { serverActions } from "./actions/queryEngine";
@@ -7,6 +7,7 @@ import { Recipes } from "@/lib/types";
 import Head from "@/components/home/head";
 import HotLinks from "@/components/home/hotlinks";
 import HomeBackDrop from "@/components/home/backdrop";
+import Pricing from "@/components/home/pricing";
 
 import { GET_RECIPES } from "@/lib/fragments/queries";
 
@@ -19,8 +20,11 @@ const Home: NextPage<any> = async () => {
       >
         <div>{data?.recipe.map((item: Recipes) => item.name)}</div>
         <Head />
+        <br /> <br /> <br /> <br />
         <HomeBackDrop />
+        <br /> <br /> <br /> <br />
         <HotLinks />
+        <Pricing />
       </main>
     </>
   );

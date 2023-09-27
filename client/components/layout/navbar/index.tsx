@@ -13,7 +13,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+      <nav className="bg-white border-gray-200 dark:bg-zinc-900 shadow-lg shadow-purple-300 dark:border-gray-700">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link href="/" className="flex items-center">
             <LogoIcon size={130} />
@@ -46,7 +46,7 @@ export default function Navbar() {
             className="hidden w-full md:block md:w-auto"
             id="navbar-dropdown"
           >
-            <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent dark:bg-transparent md:dark:bg-transparent ">
               <li>
                 <button
                   onClick={handleDropdownToggle}
