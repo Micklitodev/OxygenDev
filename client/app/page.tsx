@@ -8,6 +8,7 @@ import Head from "@/components/home/head";
 import HotLinks from "@/components/home/hotlinks";
 import HomeBackDrop from "@/components/home/backdrop";
 import Pricing from "@/components/home/pricing";
+import HomeAbout from "@/components/home/about";
 
 import { GET_RECIPES } from "@/lib/fragments/queries";
 
@@ -25,6 +26,7 @@ const Home: NextPage<any> = async () => {
         <br /> <br /> <br /> <br />
         <HotLinks />
         <Pricing />
+        <HomeAbout /> 
       </main>
     </>
   );
