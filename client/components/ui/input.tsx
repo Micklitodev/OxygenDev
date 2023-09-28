@@ -1,9 +1,22 @@
+import React from "react";
+import { InputProps } from "@/lib/types";
 
-import React from 'react';
+const Input: React.FC<InputProps> = ({
+  id,
+  placeholder,
+  type = "text",
+  name,
+  className, 
 
-const Input: React.FC = () => {
+}: any) => {
   return (
-    <input />
+    <input
+      className={`${className} rounded py-2 px-2 flex wrap bg-zinc-800 text-zinc-600`}
+      id={id}
+      type={type}
+      placeholder={placeholder}
+      name={name}
+    />
   );
 };
 

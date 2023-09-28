@@ -1,23 +1,15 @@
+import React from "react";
 
-import React from 'react';
-
-const CardContent: React.FC = () => {
+const Card: React.FC<any> = ({ children }: any) => {
   return (
-    <div>
-      {/* Your CardContent content here */}
+    <div className="flex flex-col p-6 bg-zinc-850 shadow-lg rounded-lg justify-between border border-purple-500">
+      {children}
     </div>
   );
 };
 
-const Card: React.FC = () => {
-  return (
-    <div>
-      {/* Your Card content here */}
-    </div>
-  );
+const CardContent: React.FC<any> = ({ children }: any) => {
+  return <div>{children}</div>;
 };
 
-export {
-  CardContent,
-  Card
-};
+export { CardContent, Card };

@@ -16,8 +16,7 @@ const resolvers = {
       const res = await createdRecipe.save();
 
       return {
-        id: res.id,
-        ...(res as any)._doc,
+        res,
       };
     },
   },

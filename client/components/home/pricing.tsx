@@ -3,7 +3,13 @@
 import Button from "@/components/ui/button";
 
 export default function Pricing() {
-  
+  const loggedIn = false;
+
+  const handleGetStarted = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault()
+    loggedIn ? console.log('continuedownline') : window.location.assign('/page/login')
+  };
+
   return (
     <>
       <section className="min-h-screen w-full py-12 from-zinc-900 to-zinc-800 flex items-center justify-center text-white">
@@ -70,7 +76,12 @@ export default function Pricing() {
                 </ul>
               </div>
               <div className="mt-6">
-                <Button className="w-full bg-black text-white">Get Started</Button>
+                <Button
+                  onClick={handleGetStarted}
+                  className="w-full bg-black text-white"
+                >
+                  Get Started
+                </Button>
               </div>
             </div>
 
@@ -155,7 +166,10 @@ export default function Pricing() {
                 </ul>
               </div>
               <div className="mt-6">
-                <Button className="w-full text-white bg-gradient-to-r from-pink-500 to-purple-500">
+                <Button
+                  onClick={handleGetStarted}
+                  className="w-full text-white bg-gradient-to-r from-pink-500 to-purple-500"
+                >
                   Get Started
                 </Button>
               </div>
@@ -256,7 +270,12 @@ export default function Pricing() {
                 </ul>
               </div>
               <div className="mt-6">
-                <Button className="w-full bg-black text-white">Get Started</Button>
+                <Button
+                  className="w-full bg-black text-white"
+                  onClick={handleGetStarted}
+                >
+                  Get Started
+                </Button>
               </div>
             </div>
           </div>
