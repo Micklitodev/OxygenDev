@@ -5,8 +5,6 @@ import { NextPage } from "next";
 import Head from "@/components/home/head";
 import HotLinks from "@/components/home/hotlinks";
 import HomeBackDrop from "@/components/home/backdrop";
-import Pricing from "@/components/home/pricing";
-import HomeAbout from "@/components/home/about";
 
 const Home: NextPage<any> = async () => {
   return (
@@ -17,8 +15,6 @@ const Home: NextPage<any> = async () => {
         <Head />
         <HomeBackDrop />
         <HotLinks />
-        <Pricing />
-        <HomeAbout />
       </main>
     </>
   );

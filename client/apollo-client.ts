@@ -1,3 +1,5 @@
+'use server'
+
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 
 const createApolloClient = () => {

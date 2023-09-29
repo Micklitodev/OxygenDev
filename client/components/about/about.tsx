@@ -1,9 +1,9 @@
-const HomeAbout = () => {
+const AboutComponent = () => {
   return (
     <>
-      <section className="w-full py-12 md:py-24 lg:py-22 xl:py-28">
-        <div className="container px-4 md:px-6">
-          <div className="grid gap-6 items-center">
+  <section className="flex justify-center items-center h-screen">
+      <div className="container px-4 md:px-6 w-full py-12 md:py-24 lg:py-22 xl:py-28">
+        <div className="grid gap-6 items-center">
             <div className="flex flex-col justify-center space-y-8 text-center">
               <div className="space-y-2">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
@@ -191,4 +191,4 @@ const HomeAbout = () => {
   );
 };
 
-export default HomeAbout;
+export default AboutComponent;

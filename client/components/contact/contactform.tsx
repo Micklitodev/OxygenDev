@@ -64,7 +64,7 @@ export default function ContactForm() {
                   placeholder="Enter your message"
                 />
               </div>
-              <Button className="w-full bg-black text-white">
+              <Button  className="w-full text-white bg-gradient-to-r from-pink-500 to-purple-500">
                 Send message
               </Button>
             </div>

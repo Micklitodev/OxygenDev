@@ -118,7 +118,7 @@ const GradientAnimation: React.FC = () => {
     };
   }, []);
 
-  return <div className="absolute top-20" ref={canvasRef} />;
+  return <div className="absolute mr-10 top-20" ref={canvasRef} />;
 };
 
 export default GradientAnimation;

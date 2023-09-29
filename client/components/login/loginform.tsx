@@ -62,7 +62,7 @@ const LoginForm: React.FC = (): JSX.Element => {
             <Button
               onSubmit={handleFormSubmit}
               type="submit"
-              className="w-full bg-black text-white"
+              className="w-full text-white bg-gradient-to-r from-pink-500 to-purple-500"
             >
               Submit
             </Button>
