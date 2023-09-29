@@ -4,7 +4,7 @@ import { InputProps } from "@/lib/types";
 const Input: React.FC<InputProps> = ({
   id,
   placeholder,
-  type = "text",
+  type,
   name,
   className, 
 

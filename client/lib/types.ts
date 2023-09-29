@@ -16,16 +16,27 @@ export interface LabelProps {
 }
 
 export interface InputProps {
-  className?: string; 
-  id: string;
+  className?: string;
+  id?: string;
   placeholder?: string;
   type?: string;
   name?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
- 
 }
 
+//login
 export interface LoginInput {
   email: string;
   password: string;
+}
+
+// dashboard component
+export interface ProfileComponentProps {
+  imageURL?: string;
+  name: string;
+  bio?: string;
+  email: string;
+  phone?: string; 
+  location?: string;
+  billcycle?: string; 
 }

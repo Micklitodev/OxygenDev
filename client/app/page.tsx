@@ -15,9 +15,7 @@ const Home: NextPage<any> = async () => {
         className={`flex min-h-screen flex-col items-center justify-between p-24`}
       >
         <Head />
-        <br /> <br /> <br /> <br />
         <HomeBackDrop />
-        <br /> <br /> <br /> <br />
         <HotLinks />
         <Pricing />
         <HomeAbout />

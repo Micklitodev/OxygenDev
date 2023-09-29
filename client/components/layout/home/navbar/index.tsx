@@ -92,7 +92,7 @@ export default function Navbar() {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="/page/dashboard/settings"
                         className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                       >
                         Settings
@@ -109,7 +109,7 @@ export default function Navbar() {
                   </ul>
                   <div className="py-1">
                     <a
-                      href="#"
+                      href="/signout"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
                     >
                       Sign out

@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Suspense } from "react";
 
-import Navbar from "@/components/layout/navbar";
-import Footer from "@/components/layout/footer";
+import Navbar from "@/components/layout/home/navbar";
+import Footer from "@/components/layout/home/footer";
 
 export const metadata: Metadata = {
   title: "OxygenDev",

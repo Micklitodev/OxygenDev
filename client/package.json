@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.8.4",
+    "chart.js": "^4.4.0",
     "clsx": "^2.0.0",
     "graphql": "^16.8.1",
     "next": "latest",

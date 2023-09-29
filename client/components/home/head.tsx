@@ -1,27 +1,51 @@
-'use client'
+"use client";
 
-import LogoIcon from "../icons/logo";
+import Input from "@/components/ui/input";
+import Button from "@/components/ui/button";
+import Link from "next/link";
 
 const Head = (): JSX.Element => {
   return (
     <>
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Smooth, Optimized, Intuitive Interfaces. &nbsp;
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {" "}
-            by{" "}
-          <LogoIcon size={170} />
-          </a>
+      <section className="w-full py-12 md:py-24 lg:py-32 xl:py-2 mb-14 ">
+        <div className="container px-4 md:px-6">
+          <div className="grid gap-6 items-center">
+            <div className="flex flex-col justify-center space-y-4 text-center">
+              <div className="space-y-10">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
+                  Revolutionize Your Email Experience
+                </h1>
+                <p className="max-w-[600px] text-zinc-200 md:text-xl dark:text-zinc-100 mx-auto">
+                  Join us and take control of your inbox. Fast, secure, and
+                  designed for modern life.
+                </p>
+              </div>
+    <br /> 
+              <div className="w-full max-w-sm space-y-4 mx-auto">
+                <form className="flex space-x-2">
+                  <Input
+                    className="max-w-lg flex-1 bg-gray-800 text-white border-gray-900"
+                    placeholder="Enter your email"
+                    type="email"
+                  />
+                  <Button className="bg-white text-black" type="submit">
+                    Join Now
+                  </Button>
+                </form>
+                <p className="text-xs text-zinc-200 dark:text-zinc-100">
+                  Get ready to redefine your email experience.
+                  <Link
+                    className="underline underline-offset-2 text-white"
+                    href="#"
+                  >
+                    Terms & Conditions
+                  </Link>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };
