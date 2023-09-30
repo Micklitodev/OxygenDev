@@ -1,13 +1,17 @@
+"use server";
+
 import { NextPage } from "next";
-import PricingComponent from "@/components/pricing/pricingcards"
+import Head from "@/components/pricing/head";
+import HotLinks from "@/components/pricing/hotlinks";
 
 const Pricing: NextPage<any> = async () => {
   return (
     <>
       <main
-        className={`flex min-h-screen flex-col items-center justify-between`}
+        className={`flex min-h-screen flex-col items-center justify-between p-20`}
       >
-        <PricingComponent /> 
+        <Head />
+        <HotLinks />
       </main>
     </>
   );

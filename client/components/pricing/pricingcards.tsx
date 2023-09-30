@@ -6,13 +6,15 @@ export default function PricingComponent() {
   const loggedIn = false;
 
   const handleGetStarted = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault()
-    loggedIn ? console.log('continuedownline') : window.location.assign('/page/login')
+    event.preventDefault();
+    loggedIn
+      ? console.log("continuedownline")
+      : window.location.assign("/page/login");
   };
 
   return (
     <>
-      <section className="min-h-screen w-full py-8 from-zinc-900 to-zinc-800 flex items-center justify-center text-white">
+      <section className=" w-full py-8 from-zinc-900 to-zinc-800 flex items-center justify-center text-white">
         <div className="container px-4 md:px-6">
           <div className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-3 md:gap-8">
             <div className="flex flex-col p-6 bg-zinc-850 shadow-lg rounded-lg justify-between border border-purple-500">

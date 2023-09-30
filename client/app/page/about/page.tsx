@@ -1,3 +1,5 @@
+'use server'
+
 import AboutComponent from "@/components/about/about";
 
 const About = () => {
