@@ -13,7 +13,7 @@ const ProfileComponent = (props: ProfileComponentProps) => {
             />
             <div>
               <h2 className="text-2xl font-semibold mb-2">{props.name}</h2>
-              <p className="text-gray-600">{props.bio}</p>
+              <p className="text-gray-400">{props.bio}</p>
             </div>
           </div>
           <div className="mt-6 border-t pt-6">

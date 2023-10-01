@@ -1,0 +1,8 @@
+Model Information:
+* title:	Parts of a Comet
+* source:	https://sketchfab.com/3d-models/parts-of-a-comet-fc0f8e88db8b46b286c223c1f5b578a0
+* author:	arloopa (https://sketchfab.com/arloopa)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

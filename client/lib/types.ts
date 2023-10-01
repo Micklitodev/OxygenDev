@@ -40,3 +40,4 @@ export interface ProfileComponentProps {
   location?: string;
   billcycle?: string; 
 }
+

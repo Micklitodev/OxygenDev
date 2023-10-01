@@ -1,10 +1,30 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useCallback } from "react";
 import * as THREE from "three";
+
+import { createStars } from "./mesh/stars/createStars";
+import { createDebris } from "./mesh/debris/createDebris";
+import { createNebula } from "./mesh/nebula/createNebula";
+import { createShootingStar } from "./mesh/comet/createComet";
+
+import { debrisShaders } from "./mesh/debris/shader/debris";
+import { gradientShader } from "./mesh/nebula/shader/nebula";
 
 const GradientAnimation: React.FC = () => {
   const canvasRef = useRef<HTMLDivElement | null>(null);
+
+  const handleResize = useCallback(() => {
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
+    camera.updateProjectionMatrix();
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  }, []);
 
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -14,74 +34,68 @@ const GradientAnimation: React.FC = () => {
       0.1,
       1000
     );
+
     camera.position.z = 2;
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0x000000, 0);
+    canvasRef.current?.appendChild(renderer.domElement);
 
-    if (canvasRef.current) {
-      canvasRef.current.appendChild(renderer.domElement);
-    }
+    const debris: any = [];
+    const comet: any = [];
 
-    const colors = [
-      new THREE.Color("rgba(15, 13, 18)"),
-      new THREE.Color("rgba(8, 7, 9)"),
-      new THREE.Color("rgba(23, 14, 39)"),
-      new THREE.Color("rgba(34, 17, 57)"),
-      new THREE.Color("rgba(34, 17, 62)"),
-    ];
+    // create bg-stars
+    const stars = createStars();
+    scene.add(stars);
 
-    const gradientShader = {
-      uniforms: {
-        colors: { value: colors },
-        intensity: { value: 0.6 },
-        time: { value: 0.0 },
-      },
-      vertexShader: `
-          varying vec2 vUv;
-          void main() {
-              vUv = uv;
-              gl_Position = projectionMatrix * modelViewMatrix * vec4(position, .4);
-          }
-      `,
-      fragmentShader: `
-          uniform vec3 colors[5];
-          uniform float intensity;
-          uniform float time;
-          varying vec2 vUv;
-      
-          void main() {
-              vec2 uv = vUv;
-              vec2 center = vec2(0.5, 0.5);
-              float radius = 0.9;
-              float distanceFromCenter = length(uv - center);
-              float circularMask = 1.0 - smoothstep(radius, radius + 0.05, distanceFromCenter); 
-
-              if (circularMask < 0.01) {
-                  discard;
-              }
-      
-              float gradientFactor = distanceFromCenter / radius;
-              vec3 gradientColor = mix(colors[0], colors[4], gradientFactor);
-              gradientColor = mix(gradientColor, colors[2], 0.5 * sin(uv.y * 50.0 + time * 2.0) + 50.5); 
-              
-              float alpha = .01 - smoothstep(0.8 * radius, radius, distanceFromCenter);
-              gl_FragColor = vec4(gradientColor * intensity, alpha * circularMask); 
-          }
-      `,
+    // create space debris
+    const spawnDebris = () => {
+      const spaceDebris = createDebris();
+      spaceDebris.position.set(
+        (Math.random() - 0.5) * 2000,
+        1000,
+        (Math.random() - 0.5) * 1000
+      );
+      spaceDebris.velocity = {
+        x: (Math.random() - 0.5) * 10,
+        y: -Math.random() * 20,
+        z: (Math.random() - 0.5) * 10,
+      };
+      debris.push(spaceDebris);
+      scene.add(spaceDebris);
     };
 
-    const plane = new THREE.Mesh(
-      new THREE.PlaneGeometry(2, 2),
-      new THREE.ShaderMaterial(gradientShader)
-    );
-    scene.add(plane);
+    const debrisInterval = setInterval(spawnDebris, 100);
+
+    // spawn shooting star
+    const spawnStar = async () => {
+      const shootingStar: any = await createShootingStar();
+      comet.push(shootingStar);
+      scene.add(shootingStar);
+    };
+
+    const cometInterval = setInterval(spawnStar, 5000);
+
+    // create nebula
+    const nebula = createNebula();
+    scene.add(nebula);
 
     let increasing = true;
-    function animate() {
+
+    const animate = () => {
       requestAnimationFrame(animate);
 
+      //comet flyby
+      comet.forEach((c: any, i: any) => {
+        c.position.y -= 2.5;
+        c.position.x -= 1.5;
+        if (c.position.y < -1000) {
+          scene.remove(c);
+          comet.splice(i, 1);
+        }
+      });
+
+      // gradiant pulse
       gradientShader.uniforms.time.value += 0.01;
 
       if (increasing) {
@@ -96,38 +110,42 @@ const GradientAnimation: React.FC = () => {
         }
       }
 
+      // debris random fly
+      debrisShaders.uniforms.time.value += 0.01;
+      debris.forEach((d: any, i: any) => {
+        d.position.x += d.velocity.x;
+        d.position.y += d.velocity.y;
+        d.position.z += d.velocity.z;
+        if (d.position.y < -1000) {
+          scene.remove(d);
+          debris.splice(i, 1);
+        }
+      });
+
       renderer.render(scene, camera);
-    }
+    };
+
     animate();
 
-    function handleResize() {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    }
     window.addEventListener("resize", handleResize);
 
     return () => {
-      if (renderer) {
-        renderer.dispose();
-      }
-      if (canvasRef.current) {
-        canvasRef.current.removeChild(renderer.domElement);
-      }
+      clearInterval(debrisInterval);
+      clearInterval(cometInterval);
+      renderer.dispose();
+      canvasRef.current?.removeChild(renderer.domElement);
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [handleResize]);
 
   return (
-    <>
-      <div
-        style={{ zIndex: -10 }}
-        className="absolute right-24 w-full flex items-center justify-center"
-      >
-        <div className=" mt-60 mr-10 relative before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-purple-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-purple-700/10 after:dark:from-sky-900 after:dark:via-[#9400D3]/40 before:lg:h-[360px]"></div>
-        <div className="absolute ml-20 top-10" ref={canvasRef} />
-      </div>
-    </>
+    <div
+      style={{ zIndex: -10 }}
+      className="absolute right-24 w-full flex items-center justify-center"
+    >
+      <div className=" mt-60 mr-10 relative before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-purple-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-purple-700/10 after:dark:from-sky-900 after:dark:via-[#9400D3]/40 before:lg:h-[360px]"></div>
+      <div className="absolute ml-20 top-10" ref={canvasRef} />
+    </div>
   );
 };
 
