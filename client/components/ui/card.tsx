@@ -2,7 +2,7 @@ import React from "react";
 
 const Card: React.FC<any> = ({ children }: any) => {
   return (
-    <div className="flex flex-col p-6 bg-zinc-850 shadow-lg rounded-lg justify-between border border-purple-500">
+    <div className="flex flex-col p-6 bg-zinc-850 shadow-lg rounded-lg justify-between">
       {children}
     </div>
   );

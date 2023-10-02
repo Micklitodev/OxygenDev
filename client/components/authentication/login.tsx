@@ -1,12 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 
 import { LoginInput } from "@/lib/types";
 
 import Input from "../ui/input";
-import Label from "../ui/label";
 import { Card, CardContent } from "../ui/card";
 import Button from "../ui/button";
 
@@ -39,7 +37,6 @@ const LoginForm: React.FC = (): JSX.Element => {
         <CardContent>
           <h2 className="text-2xl font-semibold">Login</h2>
           <div className="flex flex-col my-2">
-            <Label htmlFor="email">Email address:</Label>
             <Input
               placeholder="youremail@test.com"
               name="email"
@@ -48,31 +45,25 @@ const LoginForm: React.FC = (): JSX.Element => {
               onChange={handleChange}
             />
           </div>
+
           <div className="flex flex-col my-2">
-            <Label htmlFor="password">Password:</Label>
             <Input
-              placeholder="******"
+              placeholder="password"
               name="password"
               type="password"
               id="pwd"
               onChange={handleChange}
             />
           </div>
-          <div className="flex justify-end">
+
+          <div className="flex justify-end mt-10">
             <Button
               onSubmit={handleFormSubmit}
               type="submit"
-              className="w-full text-white bg-gradient-to-r from-pink-500 to-purple-500"
+              className="w-full text-white bg-black"
             >
-              Submit
+              Continue
             </Button>
-          </div>
-          <div className="mt-2">
-            <em style={{ fontSize: 13 }}>
-              <Link href="page/signup" className="text-gray-200">
-                Need to create an account? Click Here!
-              </Link>
-            </em>
           </div>
         </CardContent>
       </Card>
