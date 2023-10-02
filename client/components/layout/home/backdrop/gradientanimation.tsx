@@ -12,7 +12,7 @@ import { starShaders } from "./mesh/stars/shader/stars";
 import { debrisShaders } from "./mesh/debris/shader/debris";
 import { gradientShader } from "./mesh/nebula/shader/nebula";
 
-const GradientAnimation: React.FC = () => {
+const GradientAnimation: React.FC = (): JSX.Element => {
   const canvasRef = useRef<HTMLDivElement | null>(null);
 
   const handleResize = useCallback(() => {
@@ -66,7 +66,7 @@ const GradientAnimation: React.FC = () => {
       scene.add(spaceDebris);
     };
 
-    const debrisInterval = setInterval(spawnDebris, 100);
+    const debrisInterval = setInterval(spawnDebris, 90);
 
     // spawn shooting star
     const spawnStar = async () => {
@@ -87,7 +87,6 @@ const GradientAnimation: React.FC = () => {
       requestAnimationFrame(animate);
 
       //bg stars twinkle
-
       starShaders.uniforms.time.value += 0.01;
 
       //comet flyby

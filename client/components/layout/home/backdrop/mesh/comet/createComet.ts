@@ -1,7 +1,5 @@
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
-// import { createParticleTail } from "./particles/cometparticles";
-
 const loader = new GLTFLoader();
 
 export function createShootingStar() {
