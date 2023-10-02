@@ -1,5 +1,7 @@
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
+// import { createParticleTail } from "./particles/cometparticles";
+
 const loader = new GLTFLoader();
 
 export function createShootingStar() {
@@ -8,7 +10,11 @@ export function createShootingStar() {
       "/comet/scene.gltf",
       (gltf) => {
         let comet = gltf.scene;
-        comet.position.set(170, 210, -80);
+
+        // const smokeParticles = createParticleTail();
+        // comet.add(smokeParticles);
+
+        comet.position.set(170, 210, -100);
         comet.rotation.set(0, 0, 1);
         comet.scale.set(1, 1, 1);
         resolve(comet);

@@ -8,6 +8,7 @@ import { createDebris } from "./mesh/debris/createDebris";
 import { createNebula } from "./mesh/nebula/createNebula";
 import { createShootingStar } from "./mesh/comet/createComet";
 
+import { starShaders } from "./mesh/stars/shader/stars";
 import { debrisShaders } from "./mesh/debris/shader/debris";
 import { gradientShader } from "./mesh/nebula/shader/nebula";
 
@@ -58,7 +59,7 @@ const GradientAnimation: React.FC = () => {
       );
       spaceDebris.velocity = {
         x: (Math.random() - 0.5) * 10,
-        y: -Math.random() * 20,
+        y: -Math.random() * 10,
         z: (Math.random() - 0.5) * 10,
       };
       debris.push(spaceDebris);
@@ -85,6 +86,10 @@ const GradientAnimation: React.FC = () => {
     const animate = () => {
       requestAnimationFrame(animate);
 
+      //bg stars twinkle
+
+      starShaders.uniforms.time.value += 0.01;
+
       //comet flyby
       comet.forEach((c: any, i: any) => {
         c.position.y -= 2.5;
@@ -99,12 +104,12 @@ const GradientAnimation: React.FC = () => {
       gradientShader.uniforms.time.value += 0.01;
 
       if (increasing) {
-        gradientShader.uniforms.intensity.value += 0.0022;
+        gradientShader.uniforms.intensity.value += 0.001;
         if (gradientShader.uniforms.intensity.value >= 0.5) {
           increasing = false;
         }
       } else {
-        gradientShader.uniforms.intensity.value -= 0.003;
+        gradientShader.uniforms.intensity.value -= 0.001;
         if (gradientShader.uniforms.intensity.value <= 0.1) {
           increasing = true;
         }
