@@ -1,22 +1,32 @@
 import { gql } from "apollo-server";
 
 const typeDefs = gql`
-  type Recipe {
-    name: String
-    description: String
+  type User {
+    _id: ID
+    firstName: String
+    lastName: String
+    email: String
   }
 
-  input RecipeInput {
-    name: String
-    description: String
+  type Auth {
+    token: ID
+    user: User
   }
+
+
+
 
   type Query {
-    getRecipes: [Recipe]
+    user: User
   }
 
   type Mutation {
-    addRecipe(input: RecipeInput): Recipe!
+    addUser(
+      firstName: String!
+      lastName: String!
+      email: String!
+      password: String!
+    ): Auth
   }
 `;
 

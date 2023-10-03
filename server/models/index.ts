@@ -1,3 +1,3 @@
-import Recipe from "./recipe";
+import User from "./user";
 
-export { Recipe };
+export { User };

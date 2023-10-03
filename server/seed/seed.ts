@@ -1,11 +1,9 @@
 import db from "../config/connection";
-import { Recipe } from "../models";
-import recipeData from "./recipedata.json";
+import { User } from "../models";
+import userData from "./userdata.json";
 
 db.once("open", async () => {
-  await Recipe.deleteMany({});
-
-  await Recipe.insertMany(recipeData);
+  await User.insertMany(userData);
 
   console.log("all done!");
   process.exit(0);
