@@ -33,22 +33,24 @@ export default function HotLinks() {
             </span>
           </h2>
           <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about how OxygenDev can take the breath out of your customers with out pillars of service.
+            Learn about how OxygenDev can take the breath out of your customers
+            with out pillars of service.
           </p>
         </Link>
 
         <Link
-          href="/page/pricing"
+          href="/page/authentication/signup"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
-            Pricing{" "}
+            Create Account{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
           </h2>
           <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover our pricing structures to see what option best fits you, your buisness, or your client. 
+            Create an account and discover our pricing structures to see what option best fits you,
+            your buisness, or your client.
           </p>
         </Link>
       </div>

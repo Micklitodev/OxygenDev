@@ -10,7 +10,9 @@ import { useState } from "react";
 export default function ContactForm() {
   const [formState, setFormState] = useState({ name: "", description: "" });
 
-  const handleFormSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleFormSubmit = async (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
     event.preventDefault();
     try {
     } catch (err) {
@@ -28,46 +30,63 @@ export default function ContactForm() {
 
   return (
     <div className="flex items-center justify-center">
-      <Card>
+      <Card className="w-full max-w-md p-8 mt-6 rounded shadow-md">
         <CardContent>
-          <div className="space-y-8">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-semibold text-center mb-10">
-                Contact Us
-              </h2>
-              <p className="text-zinc-500 dark:text-zinc-400">
-                Fill out the form below and we'll get back to you as soon as
-                possible.
-              </p>
-            </div>
-            <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="first-name">First name: </Label>
-                  <Input id="first-name" placeholder="Enter your first name" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="last-name">Last name: </Label>
-                  <Input id="last-name" placeholder="Enter your last name" />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="email">Email: </Label>
-                <Input id="email" placeholder="Enter your email" type="email" />
-              </div>
+          <h2 className="text-3xl font-semibold text-center mb-4">
+            Contact Us
+          </h2>
+          <p className="text-gray-400 mb-8 text-center">
+            Fill out the form below and we'll get back to you as soon as
+            possible.
+          </p>
 
+          <div className="space-y-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="message">Message: </Label>
-                <Textarea
-                  className="min-h-[200px] min-w-[500px]"
-                  id="message"
-                  placeholder="Enter your message"
+                <Input
+                  id="first-name"
+                  name="firstName"
+                  placeholder="Enter your first name"
+                  onChange={handleChange}
+                  className="w-full p-2 rounded"
                 />
               </div>
-              <Button  className="w-full text-white bg-gradient-to-r from-pink-500 to-purple-500">
-                Send message
-              </Button>
+              <div className="space-y-2">
+                <Input
+                  id="last-name"
+                  name="lastName"
+                  placeholder="Enter your last name"
+                  onChange={handleChange}
+                  className="w-full p-2 rounded"
+                />
+              </div>
             </div>
+
+            <div className="space-y-2">
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Enter your email"
+                onChange={handleChange}
+                className="w-full p-2 rounded"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Textarea
+                id="message"
+                placeholder="Enter your message"
+                className="w-full p-2 rounded min-h-[200px]"
+              />
+            </div>
+
+            <Button
+              onClick={handleFormSubmit}
+              className="w-full p-2 text-white bg-gradient-to-r from-pink-500 to-purple-500 hover:from-purple-500 hover:to-pink-500 transition-all duration-300"
+            >
+              Send message
+            </Button>
           </div>
         </CardContent>
       </Card>

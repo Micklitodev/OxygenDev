@@ -9,7 +9,7 @@ export default function PricingComponent() {
     event.preventDefault();
     loggedIn
       ? console.log("continuedownline")
-      : window.location.assign("/page/login");
+      : window.location.assign("/page/authentication/login");
   };
 
   return (

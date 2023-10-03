@@ -27,10 +27,37 @@ const SettingsComponent = () => {
                 href="/faqs"
                 className="text-blue-500 hover:text-blue-700 hover:underline px-2"
               >
-                FAQ's <p className="inline float-right px-2 text-white"> {" > "} </p>
+                FAQ's{" "}
+                <p className="inline float-right px-2 text-white"> {" > "} </p>
               </a>
             </li>
-            {/* Add more settings options here */}
+            <li className="mb-2  py-3  border rounded-md ">
+              <a
+                href="/manage-usage"
+                className="text-blue-500 hover:text-blue-700 hover:underline px-2"
+              >
+                Manage Usage{" "}
+                <p className="inline float-right text-white px-2 "> {" > "} </p>
+              </a>
+            </li>
+            <li className="mb-2  py-3  border rounded-md ">
+              <a
+                href="/manage-usage"
+                className="text-blue-500 hover:text-blue-700 hover:underline px-2"
+              >
+                Manage Usage{" "}
+                <p className="inline float-right text-white px-2 "> {" > "} </p>
+              </a>
+            </li>
+            <li className="mb-2  py-3  border rounded-md ">
+              <a
+                href="/manage-usage"
+                className="text-blue-500 hover:text-blue-700 hover:underline px-2"
+              >
+                Manage Usage{" "}
+                <p className="inline float-right text-white px-2 "> {" > "} </p>
+              </a>
+            </li>
           </ul>
         </div>
       </div>

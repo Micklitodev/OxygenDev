@@ -1,17 +1,22 @@
 const AboutComponent = () => {
   return (
     <>
-  <section className="flex justify-center items-center h-screen">
-      <div className="container px-4 md:px-6 w-full py-12 md:py-24 lg:py-22 xl:py-28">
-        <div className="grid gap-6 items-center">
+      <section className="flex justify-center items-center h-screen">
+        <div className="container px-4 md:px-6 w-full py-12 md:py-24 lg:py-22 xl:py-28">
+          <div className="grid gap-6 items-center">
             <div className="flex flex-col justify-center space-y-8 text-center">
-              <div className="space-y-2">
+              <div className="space-y-6">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
                   Discover Our Unique Features
                 </h1>
-                <p className="max-w-[600px] text-zinc-200 md:text-xl dark:text-zinc-100 mx-auto">
-                  Our features are designed to enhance your productivity and
-                  streamline your workflow.
+                <p className="max-w-[1100px] text-zinc-200 md:text-lg dark:text-zinc-100 mx-auto">
+                  At the core of our innovative features lies a robust,
+                  intelligent algorithm that intuitively understands your work
+                  habits and anticipates your needs, ensuring that your projects
+                  always proceed smoothly and efficiently. Our platform merges
+                  sophisticated technology with a user-friendly interface,
+                  enabling you to effortlessly navigate through various
+                  functionalities and optimize your work processes.
                 </p>
               </div>
               <div className="w-full max-w-full space-y-4 mx-auto">
