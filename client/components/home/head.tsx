@@ -1,25 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useQuery } from "@/app/actions/query";
-import { useState } from "react";
-import { GET_RECIPES } from "@/lib/fragments/queries";
 import PricingComponent from "./pricingcards";
 
 const Head: React.FC = (): JSX.Element => {
-  const [formData, setFromData] = useState({ email: "" });
-
-  const handleClick = async (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    try {
-      console.log("hit");
-      const { props }: any = await useQuery(GET_RECIPES);
-      console.log(props.serverRes);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   return (
     <>
       <section className="w-full py-12 md:py-24 lg:py-32 xl:py-2 mb-14 z-10">

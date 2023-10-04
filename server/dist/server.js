@@ -6,9 +6,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const apollo_server_1 = require("apollo-server");
 const connection_1 = __importDefault(require("./config/connection"));
 const graphql_1 = require("./graphql");
+const auth_1 = require("./utils/auth");
 const server = new apollo_server_1.ApolloServer({
     typeDefs: graphql_1.typeDefs,
     resolvers: graphql_1.resolvers,
+    context: auth_1.authMiddleware,
 });
 connection_1.default.once("open", () => {
     console.log("sucess");

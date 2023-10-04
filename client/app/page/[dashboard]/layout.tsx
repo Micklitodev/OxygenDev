@@ -11,7 +11,7 @@ export default function SearchLayout({
       <div className="flex h-screen overflow-hidden">
         <DashboardNavbar />
         <main className="flex-1 bg-dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white p-6">
-        {children}
+          {children}
         </main>
       </div>
     </Suspense>

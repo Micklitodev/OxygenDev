@@ -40,6 +40,33 @@ const resolvers = {
         throw new AuthenticationError("Account already exists.");
       }
     },
+
+    login: async (_: any, args: any) => {
+      const { email, password } = args;
+
+      if (!emailRegex.test(email)) {
+        throw new AuthenticationError("Email is not in the correct format");
+      }
+      const user: any = await User.findOne({ email });
+
+      if (!user) {
+        throw new AuthenticationError("Incorrect credentials");
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError("Incorrect credentials");
+      }
+
+      const token = signToken(user);
+
+      if (!token) {
+        throw new AuthenticationError("Incorrect credentials");
+      }
+
+      return { token, user };
+    },
   },
 };
 

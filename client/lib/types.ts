@@ -1,17 +1,6 @@
-export type Recipes = {
-  description: string;
-  name: string;
-};
-
-export interface UserInput {
-  name: string;
-  description: string;
-}
-
 // components/ui
-
 export interface LabelProps {
-  className?: string; 
+  className?: string;
   htmlFor: string;
   children?: React.ReactNode;
 }
@@ -37,8 +26,7 @@ export interface ProfileComponentProps {
   name: string;
   bio?: string;
   email: string;
-  phone?: string; 
+  phone?: string;
   location?: string;
-  billcycle?: string; 
+  billcycle?: string;
 }
-

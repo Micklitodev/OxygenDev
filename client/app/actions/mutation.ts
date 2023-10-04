@@ -2,13 +2,12 @@
 
 import createApolloClient from "@/apollo-client";
 
-export async function useQuery(inputQuery: any) {
+export async function useMutation(inputMutation: any, vari: any) {
   const client = createApolloClient();
-  const { data } = await client.query({
-    query: inputQuery,
+  const { data } = await client.mutate({
+    mutation: inputMutation,
+    variables: vari
   });
-
-  console.log(data.addUser);
 
   return {
     props: {

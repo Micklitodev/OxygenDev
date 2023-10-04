@@ -8,9 +8,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = require("mongoose");
-const bcrypt = require("bcrypt");
+const bcrypt_1 = __importDefault(require("bcrypt"));
 const userSchema = new mongoose_1.Schema({
     firstName: {
         type: String,
@@ -33,18 +36,20 @@ const userSchema = new mongoose_1.Schema({
         minlength: 5,
     },
 });
+// set up pre-save middleware to hash password
 userSchema.pre("save", function (next) {
     return __awaiter(this, void 0, void 0, function* () {
         if (this.isNew || this.isModified("password")) {
             const saltRounds = 10;
-            this.password = yield bcrypt.hash(this.password, saltRounds);
+            this.password = yield bcrypt_1.default.hash(this.password, saltRounds);
         }
         next();
     });
 });
+// compare the incoming password with the hashed password
 userSchema.methods.isCorrectPassword = function (password) {
     return __awaiter(this, void 0, void 0, function* () {
-        return yield bcrypt.compare(password, this.password);
+        return yield bcrypt_1.default.compare(password, this.password);
     });
 };
 const User = (0, mongoose_1.model)("User", userSchema);

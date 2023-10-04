@@ -14,10 +14,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const connection_1 = __importDefault(require("../config/connection"));
 const models_1 = require("../models");
-const recipedata_json_1 = __importDefault(require("./recipedata.json"));
+const userdata_json_1 = __importDefault(require("./userdata.json"));
 connection_1.default.once("open", () => __awaiter(void 0, void 0, void 0, function* () {
-    yield models_1.Recipe.deleteMany({});
-    yield models_1.Recipe.insertMany(recipedata_json_1.default);
+    yield models_1.User.insertMany(userdata_json_1.default);
     console.log("all done!");
     process.exit(0);
 }));
