@@ -8,8 +8,6 @@ export async function useQuery(inputQuery: any) {
     query: inputQuery,
   });
 
-  console.log(data.addUser);
-
   return {
     props: {
       serverRes: data,

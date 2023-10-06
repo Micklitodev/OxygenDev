@@ -1,9 +1,10 @@
+import Cookie from "js-cookie";
 import decode from "jwt-decode";
 
 class AuthService {
   getProfile() {
-    const data: any = this.getToken();
-    return decode(data);
+    const token = this.getToken();
+    return token ? decode(token) : null;
   }
 
   loggedIn() {
@@ -14,9 +15,9 @@ class AuthService {
   isTokenExpired(token: any) {
     try {
       const decoded: any = decode(token);
-      if (decoded.exp < Date.now() / 1000) {
-        localStorage.removeItem("id_token");
-        window.location.assign("/");
+      console.log(decoded.exp > Date.now() / 1000);
+      if (decoded.exp > Date.now() / 1000) {
+        Cookie.remove("token");
         return true;
       } else return false;
     } catch (err) {
@@ -25,16 +26,16 @@ class AuthService {
   }
 
   getToken() {
-    return localStorage.getItem("id_token");
+    return Cookie.get("token");
   }
 
   login(token: any) {
-    localStorage.setItem("id_token", token);
+    Cookie.set("token", token, { expires: 7, sameSite: "Lax" });
     window.location.assign("/");
   }
 
   logout() {
-    localStorage.removeItem("id_token");
+    Cookie.remove("token");
     window.location.assign("/");
   }
 }

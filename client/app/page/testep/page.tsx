@@ -14,7 +14,7 @@ const Fetch = async () => {
   const data = await useMutation(LOGIN, VARS);
 
   if (data) {
-    Auth.login(data.props.serverRes.login.token)
+    Auth.login(data.props.serverRes.login.token);
   }
 };
 
