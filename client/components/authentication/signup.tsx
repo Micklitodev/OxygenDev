@@ -2,23 +2,21 @@
 
 import { useState } from "react";
 
-import { Card, CardContent } from "../ui/card";
+import { SignUpInput } from "@/lib/types";
+
 import Input from "../ui/input";
+import { Card, CardContent } from "../ui/card";
 import Button from "../ui/button";
-
-import { LoginInput } from "@/lib/types";
 import { useMutation } from "@/app/actions/mutation";
-import { LOGIN } from "@/lib/fragments/mutations";
-
+import { ADD_USER } from "@/lib/fragments/mutations";
 import Auth from "@/utils/auth";
 
-// email: "Ecartman@testemail.com",
-// password: "testpass12",
-
-const LoginForm: React.FC = (): JSX.Element => {
-  const [formState, setFormState] = useState<LoginInput>({
+const SignUpForm: React.FC = (): JSX.Element => {
+  const [formState, setFormState] = useState<SignUpInput>({
     email: "",
     password: "",
+    firstName: "",
+    lastName: "",
   });
 
   const Fetch = async (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -28,10 +26,10 @@ const LoginForm: React.FC = (): JSX.Element => {
         ...formState,
       };
 
-      const data = await useMutation(LOGIN, VARS);
+      const data = await useMutation(ADD_USER, VARS);
 
       if (data) {
-        Auth.login(data.props.serverRes.login.token);
+         Auth.login(data.props.serverRes.addUser.token);
       }
     } catch (error) {
       console.log(error);
@@ -50,7 +48,28 @@ const LoginForm: React.FC = (): JSX.Element => {
     <>
       <Card>
         <CardContent>
-          <h2 className="text-2xl font-semibold">Login</h2>
+          <h2 className="text-2xl font-semibold">Sign Up</h2>
+
+          <div className="flex flex-col my-2">
+            <Input
+              placeholder="first name"
+              name="firstName"
+              type="firstName"
+              id="firstName"
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="flex flex-col my-2">
+            <Input
+              placeholder="last name"
+              name="lastName"
+              type="lastName"
+              id="lastName"
+              onChange={handleChange}
+            />
+          </div>
+
           <div className="flex flex-col my-2">
             <Input
               placeholder="youremail@test.com"
@@ -86,4 +105,4 @@ const LoginForm: React.FC = (): JSX.Element => {
   );
 };
 
-export default LoginForm;
+export default SignUpForm;

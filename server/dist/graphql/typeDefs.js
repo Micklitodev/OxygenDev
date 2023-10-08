@@ -16,7 +16,7 @@ const typeDefs = (0, apollo_server_1.gql) `
 
 
 
-
+  
   type Query {
     user: User
   }
@@ -28,7 +28,7 @@ const typeDefs = (0, apollo_server_1.gql) `
       email: String!
       password: String!
     ): Auth
-    
+
     login(email: String!, password: String!): Auth
   }
 `;

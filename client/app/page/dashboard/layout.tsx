@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import DashboardNavbar from "@/components/layout/dashboard/navbar";
 
-export default function SearchLayout({
+export default function dashLayout({
   children,
 }: {
   children: React.ReactNode;

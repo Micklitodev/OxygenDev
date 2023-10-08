@@ -20,6 +20,14 @@ export interface LoginInput {
   password: string;
 }
 
+//signup 
+export interface SignUpInput {
+  email: string;
+  password: string;
+  firstName: string; 
+  lastName: string; 
+}
+
 // dashboard component
 export interface ProfileComponentProps {
   imageURL?: string;
