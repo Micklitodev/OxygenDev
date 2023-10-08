@@ -15,8 +15,9 @@ class AuthService {
   isTokenExpired(token: any) {
     try {
       const decoded: any = decode(token);
-      console.log(decoded.exp > Date.now() / 1000);
-      if (decoded.exp > Date.now() / 1000) {
+      console.log(decoded.exp);
+      console.log(Date.now() / 1000);
+      if (decoded.exp < Date.now() / 1000) {
         Cookie.remove("token");
         return true;
       } else return false;

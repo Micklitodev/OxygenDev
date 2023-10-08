@@ -1,17 +1,22 @@
 "use client";
 
 import Button from "@/components/ui/button";
+import Auth from '@/utils/auth'
 
 export default function PricingComponent() {
-  const loggedIn = false;
+  const loggedIn = Auth.loggedIn(); 
 
   const handleGetStarted = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    
     loggedIn
-      ? console.log("continuedownline")
-      : window.location.assign("/page/authentication/login");
+      ? createCheckoutSession()
+      : window.location.assign("/page/authentication/signup");
   };
 
+  const createCheckoutSession = () => {
+    console.log('ccs mutation intializer')
+  }
   return (
     <>
       <section className=" w-full py-8 from-zinc-900 to-zinc-800 flex items-center justify-center text-white">
