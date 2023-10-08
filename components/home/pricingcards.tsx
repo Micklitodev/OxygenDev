@@ -1,22 +1,44 @@
 "use client";
 
 import Button from "@/components/ui/button";
-import Auth from '@/utils/auth'
+import Auth from "@/utils/auth";
+import { useEffect } from "react";
+// import { useQuery } from "@/app/actions/query";
+// import { loadStripe } from "@stripe/stripe-js";
+
+// const stripeapi = process.env.REACT_APP_STRIPE_CLIENT_API;
+// const stripePromise = loadStripe(stripeapi);
 
 export default function PricingComponent() {
-  const loggedIn = Auth.loggedIn(); 
+  const loggedIn = Auth.loggedIn();
+
+  // const data = useQuery(CREATE_CS);
+
+  // useEffect(() => {
+  //   if (data) {
+  //     stripePromise.then((res: any) => {
+  //       res.redirectToCheckout({ sessionId: data.checkout.session });
+  //     });
+  //   }
+  // }, [data]);
 
   const handleGetStarted = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    
+
     loggedIn
       ? createCheckoutSession()
       : window.location.assign("/page/authentication/signup");
   };
 
   const createCheckoutSession = () => {
-    console.log('ccs mutation intializer')
-  }
+    // getCheckout({
+    //   variables: {
+    //     package: productIds,
+    //   },
+    // });
+
+    console.log("create ccs intialization");
+  };
   return (
     <>
       <section className=" w-full py-8 from-zinc-900 to-zinc-800 flex items-center justify-center text-white">
