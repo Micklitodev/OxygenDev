@@ -34,3 +34,11 @@ export const LOGIN = gql`
     }
   }
 `;
+
+export const CREATE_CS = gql`
+  mutation Mutation($pkg: [ID]!) {
+    checkoutSess(pkg: $pkg) {
+      session
+    }
+  }
+`;

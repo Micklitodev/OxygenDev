@@ -9,22 +9,22 @@ class AuthService {
 
   loggedIn() {
     const token = this.getToken();
-    return !!token && !this.isTokenExpired(token);
+    return !!token;
   }
 
-  isTokenExpired(token: any) {
-    try {
-      const decoded: any = decode(token);
-      console.log(decoded.exp);
-      console.log(Date.now() / 1000);
-      if (decoded.exp < Date.now() / 1000) {
-        Cookie.remove("token");
-        return true;
-      } else return false;
-    } catch (err) {
-      return false;
-    }
-  }
+  // isTokenExpired(token: any) {
+  //   try {
+  //     const decoded: any = decode(token);
+  //     console.log(decoded.exp);
+  //     console.log(Date.now() / 1000);
+  //     if (decoded.exp < Date.now() / 1000) {
+  //       Cookie.remove("token");
+  //       return true;
+  //     } else return false;
+  //   } catch (err) {
+  //     return false;
+  //   }
+  // }
 
   getToken() {
     return Cookie.get("token");

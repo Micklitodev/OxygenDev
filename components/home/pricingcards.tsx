@@ -2,25 +2,27 @@
 
 import Button from "@/components/ui/button";
 import Auth from "@/utils/auth";
-import { useEffect } from "react";
-// import { useQuery } from "@/app/actions/query";
-// import { loadStripe } from "@stripe/stripe-js";
+import { useEffect, useState } from "react";
+import { useMutation } from "@/app/actions/mutation";
+import { loadStripe } from "@stripe/stripe-js";
+import { CREATE_CS } from "@/lib/fragments/mutations";
 
-// const stripeapi = process.env.REACT_APP_STRIPE_CLIENT_API;
-// const stripePromise = loadStripe(stripeapi);
+const stripeApiString: any = process.env.NEXT_PUBLIC_STRIPE_API;
+const stripePromise = loadStripe(stripeApiString);
 
 export default function PricingComponent() {
   const loggedIn = Auth.loggedIn();
+  const [data, setData] = useState<any>(null);
 
-  // const data = useQuery(CREATE_CS);
-
-  // useEffect(() => {
-  //   if (data) {
-  //     stripePromise.then((res: any) => {
-  //       res.redirectToCheckout({ sessionId: data.checkout.session });
-  //     });
-  //   }
-  // }, [data]);
+  useEffect(() => {
+    if (data) {
+      stripePromise.then((res: any) => {
+        res.redirectToCheckout({
+          sessionId: data.props.serverRes.checkoutSess.session,
+        });
+      });
+    }
+  }, [data]);
 
   const handleGetStarted = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -30,14 +32,14 @@ export default function PricingComponent() {
       : window.location.assign("/page/authentication/signup");
   };
 
-  const createCheckoutSession = () => {
-    // getCheckout({
-    //   variables: {
-    //     package: productIds,
-    //   },
-    // });
-
-    console.log("create ccs intialization");
+  const createCheckoutSession = async () => {
+    const VARS = {
+      pkg: "65230d5f90cc79034ff814af",
+    };
+    const data = await useMutation(CREATE_CS, VARS);
+    if (data) {
+      setData(data);
+    }
   };
   return (
     <>
