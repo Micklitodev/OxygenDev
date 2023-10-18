@@ -10,3 +10,15 @@ export const GET_USER = gql`
     }
   }
 `;
+
+export const GET_PKGS = gql`
+  query Query {
+    getPkg {
+      _id
+      features
+      name
+      price
+      popular
+    }
+  }
+`;
