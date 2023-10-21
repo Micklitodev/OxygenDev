@@ -20,9 +20,11 @@ export default function PricingComponent() {
   const [response, setResponse] = useState<any>(null);
 
   useEffect(() => {
-    query(GET_PKGS).then((res) => {
-      setResponse(res.props.serverRes.getPkg);
-    });
+    if (response === null) {
+      query(GET_PKGS).then((res) => {
+        setResponse(res.props.serverRes.getPkg);
+      });
+    }
   }, []);
 
   useEffect(() => {
