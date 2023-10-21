@@ -4,7 +4,7 @@ import { ApolloClient, InMemoryCache } from "@apollo/client";
 
 const createApolloClient = () => {
   return new ApolloClient({
-    uri: "http://localhost:4000/graphql",
+    uri: "https://oxygen-dev-server-fzji.vercel.app/graphql",
     cache: new InMemoryCache(),
   });
 };
