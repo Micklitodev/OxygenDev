@@ -1,4 +1,5 @@
 import { ProfileComponentProps } from "@/lib/types";
+import Image from "next/image";
 
 const ProfileComponent = (props: ProfileComponentProps) => {
   return (
@@ -6,10 +7,13 @@ const ProfileComponent = (props: ProfileComponentProps) => {
       <div className="flex justify-center mt-10">
         <div className="shadow-md rounded-lg p-6 max-w-[900px]">
           <div className="flex items-center space-x-8">
-            <img
+            <Image
+            //@ts-ignore
               src={props.imageURL}
               alt="Profile"
               className="w-36 h-36 rounded-full object-cover"
+              height={300}
+              width={300}
             />
             <div>
               <h2 className="text-2xl font-semibold mb-2">{props.name}</h2>

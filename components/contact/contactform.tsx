@@ -1,6 +1,5 @@
 "use client";
 
-import Label from "@/components/ui/label";
 import Input from "@/components/ui/input";
 import Textarea from "@/components/ui/textarea";
 import Button from "@/components/ui/button";
@@ -36,7 +35,7 @@ export default function ContactForm() {
             Contact Us
           </h2>
           <p className="text-gray-400 mb-8 text-center">
-            Fill out the form below and we'll get back to you as soon as
+            Fill out the form below and we will get back to you as soon as
             possible.
           </p>
 

@@ -27,7 +27,7 @@ const SettingsComponent = () => {
                 href="/faqs"
                 className="text-blue-500 hover:text-blue-700 hover:underline px-2"
               >
-                FAQ's{" "}
+                FAQs
                 <p className="inline float-right px-2 text-white"> {" > "} </p>
               </a>
             </li>

@@ -3,7 +3,7 @@ export default function DashboardMain() {
     <>
       <h1 className="text-3xl font-semibold">Welcome back!</h1>
       <p className="mt-2 mb-10 ml-1 text-gray-100">
-        Here's what's been happening since your last visit.
+        Here is what has been happening since your last visit.
       </p>
 
       <div className="grid gap-6 mt-6 grid-cols-2">

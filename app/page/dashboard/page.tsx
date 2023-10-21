@@ -1,12 +1,18 @@
+"use client";
+
 import DashboardMain from "@/components/dashboard/main";
 import Auth from "../../../utils/auth";
 import { redirect } from "next/navigation";
+import { Suspense } from "react";
 
 export default function Dashboard() {
-  // Auth.loggedIn() ? null : redirect("/page/authentication/login");
+  const logged = Auth.loggedIn();
+  logged ? null : redirect("/page/authentication/login");
   return (
     <>
-      <DashboardMain />
+      <Suspense>
+        <DashboardMain />
+      </Suspense>
     </>
   );
 }

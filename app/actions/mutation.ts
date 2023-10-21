@@ -3,7 +3,7 @@
 import createApolloClient from "@/apollo-client";
 import { revalidatePath } from "next/cache";
 
-export async function useMutation(inputMutation: any, vari: any) {
+export async function mutate(inputMutation: any, vari: any) {
   const client = createApolloClient();
   const { data } = await client.mutate({
     mutation: inputMutation,

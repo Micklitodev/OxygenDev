@@ -7,7 +7,7 @@ import Input from "../ui/input";
 import Button from "../ui/button";
 
 import { LoginInput } from "@/lib/types";
-import { useMutation } from "@/app/actions/mutation";
+import { mutate } from "@/app/actions/mutation";
 import { LOGIN } from "@/lib/fragments/mutations";
 
 import Auth from "@/utils/auth";
@@ -28,7 +28,7 @@ const LoginForm: React.FC = (): JSX.Element => {
         ...formState,
       };
 
-      const data = await useMutation(LOGIN, VARS);
+      const data = await mutate(LOGIN, VARS);
 
       if (data) {
         Auth.login(data.props.serverRes.login.token);

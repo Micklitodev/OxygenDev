@@ -7,7 +7,7 @@ import { SignUpInput } from "@/lib/types";
 import Input from "../ui/input";
 import { Card, CardContent } from "../ui/card";
 import Button from "../ui/button";
-import { useMutation } from "@/app/actions/mutation";
+import { mutate } from "@/app/actions/mutation";
 import { ADD_USER } from "@/lib/fragments/mutations";
 import Auth from "@/utils/auth";
 
@@ -26,7 +26,7 @@ const SignUpForm: React.FC = (): JSX.Element => {
         ...formState,
       };
 
-      const data = await useMutation(ADD_USER, VARS);
+      const data = await mutate(ADD_USER, VARS);
 
       if (data) {
          Auth.login(data.props.serverRes.addUser.token);

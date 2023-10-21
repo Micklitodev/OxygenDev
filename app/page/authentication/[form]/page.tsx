@@ -6,9 +6,9 @@ import Link from "next/link";
 
 import LoginForm from "@/components/authentication/login";
 import SignUpForm from "@/components/authentication/signup";
-import { useEffect } from "react";
+import { Suspense } from "react";
 
-const Login: NextPage<any> = async () => {
+const Login: NextPage<any> = () => {
   const pathname = usePathname();
   const routeId = pathname.includes("login");
 
@@ -31,9 +31,9 @@ const Login: NextPage<any> = async () => {
                 Enter your email below to acess your account
               </p>
             </div>
-
-            <LoginForm />
-
+            <Suspense>
+              <LoginForm />
+            </Suspense>
             <p className="px-8 text-center text-sm text-muted-foreground">
               By clicking continue, you agree to our{" "}
               <Link
@@ -74,9 +74,9 @@ const Login: NextPage<any> = async () => {
                 Enter your email below to create your account
               </p>
             </div>
-
-            <SignUpForm />
-
+            <Suspense>
+              <SignUpForm />
+            </Suspense>
             <p className="px-8 text-center text-sm text-muted-foreground">
               By clicking continue, you agree to our{" "}
               <Link

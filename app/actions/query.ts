@@ -2,7 +2,7 @@
 
 import createApolloClient from "@/apollo-client";
 
-export async function useQuery(inputQuery: any) {
+export async function query(inputQuery: any) {
   const client = createApolloClient();
   const { data } = await client.query({
     query: inputQuery,

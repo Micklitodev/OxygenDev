@@ -3,11 +3,11 @@
 import Button from "@/components/ui/button";
 import Auth from "@/utils/auth";
 
-import { useQuery } from "@/app/actions/query";
+import { query } from "@/app/actions/query";
 import { GET_PKGS } from "@/lib/fragments/queries";
 
 import { useEffect, useState } from "react";
-import { useMutation } from "@/app/actions/mutation";
+import { mutate } from "@/app/actions/mutation";
 import { loadStripe } from "@stripe/stripe-js";
 import { CREATE_CS } from "@/lib/fragments/mutations";
 
@@ -20,7 +20,7 @@ export default function PricingComponent() {
   const [response, setResponse] = useState<any>(null);
 
   useEffect(() => {
-    useQuery(GET_PKGS).then((res) => {
+    query(GET_PKGS).then((res) => {
       setResponse(res.props.serverRes.getPkg);
     });
   }, []);
@@ -44,12 +44,13 @@ export default function PricingComponent() {
       return window.location.assign("/page/authentication/signup");
     }
 
-    const ID = event.target.parentNode.parentNode.id;
+    //@ts-ignore
+    const ID: any = (event.target as HTMLElement).parentNode?.parentNode?.id;
 
     const VARS = {
       pkg: ID,
     };
-    const data = await useMutation(CREATE_CS, VARS);
+    const data = await mutate(CREATE_CS, VARS);
     if (data) {
       setData(data);
     }
@@ -82,7 +83,7 @@ export default function PricingComponent() {
 
                     <ul className="mt-4 space-y-2">
                       {pkg.features.map((feat: any) => (
-                        <li className="flex items-center">
+                        <li className="flex items-center" key={feat}>
                           <svg
                             className="text-white text-xs bg-green-500 rounded-full mr-2 p-1"
                             fill="none"
