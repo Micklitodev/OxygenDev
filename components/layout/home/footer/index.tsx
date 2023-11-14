@@ -5,16 +5,16 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="bg-white rounded-lg shadow-purple-300 m-4 dark:bg-zinc-950">
+      <footer className=" rounded-lg shadow-purple-300 m-4 bg-zinc-900">
         <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+          <span className="text-sm text-gray-400 sm:text-center dark:text-gray-400">
             © {year}{" "}
             <Link href="http://www.google.com/" className="hover:underline">
               OxygenDev™
             </Link>
             . All Rights Reserved.
           </span>
-          <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+          <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-400 dark:text-gray-400 sm:mt-0">
             <li>
               <Link
                 href="/page/about"

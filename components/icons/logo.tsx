@@ -16,7 +16,7 @@ export default function LogoIcon({ size }: LogoProps) {
 
   return (
     <Image
-      className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
+      className="relative drop-shadow-[0_0_0.3rem_#ffffff70] invert"
       height={h}
       width={w}
       src="/oxygendevlogo.svg"
