@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Suspense } from "react";
 
-import Navbar from "@/components/layout/home/navbar";
-import Footer from "@/components/layout/home/footer";
-import GradientAnimation from "@/components/layout/home/backdrop/gradientanimation";
+import Navbar from "@/app/components/layout/home/navbar";
+import Footer from "@/app/components/layout/home/footer";
+import GradientAnimation from "@/app/components/layout/home/backdrop/gradientanimation";
 
 export const metadata: Metadata = {
   title: "OxygenDev",

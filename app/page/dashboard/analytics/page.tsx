@@ -1,4 +1,4 @@
-import AnalyticsComponent from "@/components/dashboard/analytics";
+import AnalyticsComponent from "@/app/components/dashboard/analytics";
 
 const Analytics = () => {
   return (

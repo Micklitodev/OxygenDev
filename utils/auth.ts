@@ -1,3 +1,4 @@
+import { Token } from "@/lib/types";
 import Cookie from "js-cookie";
 import decode from "jwt-decode";
 
@@ -12,10 +13,9 @@ class AuthService {
     return !!token;
   }
 
-  // isTokenExpired(token: any) {
+  // isTokenExpired(token: string) {
   //   try {
-  //     const decoded: any = decode(token);
-  //     console.log(decoded.exp);
+  //     const decoded: any = decode(token as string);
   //     console.log(Date.now() / 1000);
   //     if (decoded.exp < Date.now() / 1000) {
   //       Cookie.remove("token");
@@ -30,7 +30,7 @@ class AuthService {
     return Cookie.get("token");
   }
 
-  login(token: any) {
+  login(token: Token) {
     Cookie.set("token", token, { expires: 7, sameSite: "Lax" });
     window.location.assign("/");
   }

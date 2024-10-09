@@ -1,4 +1,4 @@
-// components/ui
+// components ui
 export interface LabelProps {
   className?: string;
   htmlFor: string;
@@ -20,12 +20,12 @@ export interface LoginInput {
   password: string;
 }
 
-//signup 
+//signup
 export interface SignUpInput {
   email: string;
   password: string;
-  firstName: string; 
-  lastName: string; 
+  firstName: string;
+  lastName: string;
 }
 
 // dashboard component
@@ -38,3 +38,8 @@ export interface ProfileComponentProps {
   location?: string;
   billcycle?: string;
 }
+
+//data types
+export type Token = {
+  token: string;
+};

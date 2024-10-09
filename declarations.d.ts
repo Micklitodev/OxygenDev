@@ -1,2 +1,2 @@
-declare module 'three/examples/jsm/loaders/GLTFLoader';
-declare module 'js-cookie'
+declare module "three/examples/jsm/loaders/GLTFLoader";
+declare module "js-cookie";

@@ -11,10 +11,11 @@
 .dark body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
-    to black,
-    transparent,
-    rgb(var(--background-end-rgb))
-  ) rgb(var(--background-start-rgb));
+      to black,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
   overflow-x: hidden;
 }
 

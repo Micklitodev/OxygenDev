@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import ContactForm from "@/components/contact/contactform";
+import ContactForm from "@/app/components/contact/contactform";
 import { Suspense } from "react";
 
 const Contact: NextPage<any> = async () => {

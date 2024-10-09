@@ -3,12 +3,11 @@
 import { NextPage } from "next";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-
-import LoginForm from "@/components/authentication/login";
-import SignUpForm from "@/components/authentication/signup";
+import LoginForm from "@/app/components/authentication/login";
+import SignUpForm from "@/app/components/authentication/signup";
 import { Suspense } from "react";
 
-const Login: NextPage<any> = () => {
+const Login: NextPage = () => {
   const pathname = usePathname();
   const routeId = pathname.includes("login");
 

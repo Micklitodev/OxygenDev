@@ -1,11 +1,11 @@
-import SettingsComponent from "@/components/dashboard/settings";
+import SettingsComponent from "@/app/components/dashboard/settings";
 
 const Settings = () => {
-    return (
-        <>
-        <SettingsComponent />
-        </>
-    )
-}
+  return (
+    <>
+      <SettingsComponent />
+    </>
+  );
+};
 
 export default Settings;

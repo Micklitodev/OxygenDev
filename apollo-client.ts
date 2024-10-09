@@ -1,13 +1,19 @@
-'use server'
+"use server";
 
-import { ApolloClient, InMemoryCache } from "@apollo/client";
+import {
+  ApolloClient,
+  InMemoryCache,
+  NormalizedCacheObject,
+} from "@apollo/client";
 
-const createApolloClient = () => {
-  return new ApolloClient({
-    uri: "https://oxygen-dev-server-f3a3a37f7daa.herokuapp.com/graphql",
-    cache: new InMemoryCache(),
-  });
+let client: ApolloClient<NormalizedCacheObject> | null = null;
+
+export const getClient = () => {
+  if (!client) {
+    client = new ApolloClient<NormalizedCacheObject>({
+      uri: "http://localhost:4000/",
+      cache: new InMemoryCache(),
+    });
+  }
+  return client;
 };
-
-export default createApolloClient;
-

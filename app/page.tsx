@@ -1,8 +1,8 @@
 "use server";
 
 import { NextPage } from "next";
-import Head from "@/components/home/head";
-import HotLinks from "@/components/home/hotlinks";
+import Head from "@/app/components/home/head";
+import HotLinks from "@/app/components/home/hotlinks";
 
 const Home: NextPage<any> = async () => {
   return (
