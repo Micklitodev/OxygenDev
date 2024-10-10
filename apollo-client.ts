@@ -11,7 +11,7 @@ let client: ApolloClient<NormalizedCacheObject> | null = null;
 export const getClient = () => {
   if (!client) {
     client = new ApolloClient<NormalizedCacheObject>({
-      uri: "http://localhost:4000/",
+      uri: process.env.API_URI || "http://localhost:4000/",
       cache: new InMemoryCache(),
     });
   }
